@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="org.prenux.young.budgetbro.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/view">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <EditText android:id="@+id/price_message"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/price_message"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/view"
+        android:layout_centerHorizontal="true" />
+
+    <EditText android:id="@+id/what_message"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/what_message"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/price_message"
+        android:layout_alignEnd="@+id/price_message" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_below="@+id/what_message"
+        android:layout_alignEnd="@+id/price_message"
+        android:layout_marginTop="35dp"/>
+
+    <TextView android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/spinner"
+        android:layout_alignEnd="@+id/price_message" />
+
+    <Button
+        android:layout_gravity="start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_send"
+        android:onClick="showNoticeDialog"
+        android:id="@+id/button2"
+        android:layout_marginStart="53dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/what_message"
+        android:layout_marginBottom="25dp" />
+
+    <Button
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_read"
+        android:onClick="readIt"
+        android:id="@+id/button"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignEnd="@+id/what_message"
+        android:layout_marginEnd="60dp"/>
+
+</RelativeLayout>
