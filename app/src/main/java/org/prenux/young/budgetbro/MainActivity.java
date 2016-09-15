@@ -2,6 +2,7 @@ package org.prenux.young.budgetbro;
 
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,15 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity
         implements ConfirmDialogFragment.ConfirmDialogListener {
@@ -35,7 +33,12 @@ public class MainActivity extends AppCompatActivity
     EditText priceEditText, whatEditText;
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
-    String typeStr;
+    String catStr;
+    int catInt;
+    int totalInt;
+    ArrayList<Integer> catTotArrList = new ArrayList<>();
+    ArrayList<String[]> finalArrayList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,8 @@ public class MainActivity extends AppCompatActivity
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                typeStr = (String) parent.getItemAtPosition(position);
+                catStr = (String) parent.getItemAtPosition(position);
+                catInt = (int)  parent.getItemIdAtPosition(position);
                 Toast.makeText(getBaseContext(),parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
             }
 
@@ -120,8 +124,8 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Nothing to confess!!!", Toast.LENGTH_LONG).show();
             return;
         }
-
-        String datStr = String.format("%s,%s,%s \r\n",typeStr, whatStr, priceStr);
+        String catIntStr = String.valueOf(catInt);
+        String datStr = String.format("%s,%s,%s,%s \r\n", catIntStr, catStr, whatStr, priceStr);
         String datFile = "data";
 
         try {
@@ -137,7 +141,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void readIt(View view){
-    //Read the file and print it
+        ArrayList<String[]> csvArrayList = new ArrayList<>();
         FileInputStream fileInputStream;
         try {
             String datStr;
@@ -147,14 +151,45 @@ public class MainActivity extends AppCompatActivity
             StringBuilder stringBuilder = new StringBuilder();
 
             while ((datStr=bufferedReader.readLine()) != null) {
-                stringBuilder.append(datStr).append("\n");
+                String[] tmpArray = datStr.split(",");
+                csvArrayList.add(tmpArray);
             }
-            textView.setText(stringBuilder.toString());
-            textView.setVisibility(View.VISIBLE);
+            analyzeIt(csvArrayList);
+            for (int i : catTotArrList){
+                try {
+                    catStr = "Hello";
+                    String cost = String.valueOf(i);
+                    String displayStr = String.format("%s : %s$", catStr, cost);
+                    stringBuilder.append(displayStr).append("\n");
+                    textView.setText(stringBuilder);
+                    textView.setVisibility(View.VISIBLE);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    private void analyzeIt(ArrayList<String[]> csvArrayList){
+        totalInt = 0;
+
+
+        // csvArrayList[x] = [[catInt, catStr, whatStr, priceStr],...]
+        for(String[]  stringArray : csvArrayList){
+
+            totalInt += Integer.valueOf(stringArray[3]);
+
+            finalArrayList.add(Integer.valueOf(stringArray[0]), Arrays.copyOfRange(stringArray, 2, stringArray.length));
+
+            catTotArrList.add(Integer.valueOf(stringArray[0]), catTotArrList.get(Integer.valueOf(stringArray[0])) + Integer.valueOf(stringArray[3]));
+        }
+
 
     }
 
