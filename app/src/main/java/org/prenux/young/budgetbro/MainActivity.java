@@ -190,6 +190,7 @@ public class MainActivity extends AppCompatActivity
             catTotArrList.add(Integer.valueOf(stringArray[0]), catTotArrList.get(Integer.valueOf(stringArray[0])) + Integer.valueOf(stringArray[3]));
         }
 
+        //hello
 
     }
 
