@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true" />
 
     <EditText android:id="@+id/what_message"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/what_message"
@@ -50,14 +50,15 @@
         android:layout_alignEnd="@+id/price_message"
         android:layout_marginTop="35dp"/>
 
-    <TextView android:id="@+id/textview"
+    <TextView android:id="@+id/totView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/spinner"
-        android:layout_alignEnd="@+id/price_message" />
+        android:layout_alignEnd="@+id/price_message"
+        android:textSize="20sp"/>
 
     <Button
         android:layout_gravity="start"
@@ -65,7 +66,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_send"
         android:onClick="showNoticeDialog"
-        android:id="@+id/button2"
+        android:id="@+id/button_swear"
         android:layout_marginStart="53dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/what_message"
@@ -77,9 +78,43 @@
         android:layout_height="wrap_content"
         android:text="@string/button_read"
         android:onClick="readIt"
-        android:id="@+id/button"
-        android:layout_alignTop="@+id/button2"
+        android:id="@+id/button_read"
+        android:layout_alignTop="@+id/button_swear"
         android:layout_alignEnd="@+id/what_message"
-        android:layout_marginEnd="60dp"/>
+        android:layout_marginEnd="60dp" />
+
+    <TextView
+        android:id="@+id/expenseView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="999999"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/catView1"
+        android:layout_above="@id/button_swear"
+        android:layout_alignStart="@+id/catView1" />
+
+    <TextView
+        android:id="@+id/catView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#AA00BB"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/totView"
+        android:layout_alignEnd="@+id/button_swear" />
+
+    <TextView
+        android:id="@+id/catView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#AA00BB"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/totView"
+        android:layout_alignStart="@+id/button_read" />
 
 </RelativeLayout>

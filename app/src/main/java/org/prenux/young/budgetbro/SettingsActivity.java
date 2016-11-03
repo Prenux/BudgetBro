@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import java.io.File;
-
 public class SettingsActivity extends AppCompatActivity
         implements ConfirmDialogFragment.ConfirmDialogListener {
 
@@ -19,12 +17,10 @@ public class SettingsActivity extends AppCompatActivity
     }
 
     public void deleteData (View view){
-        File dir = getFilesDir();
-        File file = new File(dir, "data");
-        Boolean fileDeleted = file.delete();
-        if(fileDeleted) {
-            Toast.makeText(getApplicationContext(), "All Forgotten!", Toast.LENGTH_LONG).show();
-        }
+
+        DBHelper db = new DBHelper(this);
+        db.deleteDb(this);
+        Toast.makeText(getApplicationContext(), "All Forgotten!", Toast.LENGTH_LONG).show();
 
     }
 
@@ -49,6 +45,11 @@ public class SettingsActivity extends AppCompatActivity
 
     public void goToMain (View view){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToModifyExp (View view){
+        Intent intent = new Intent(this, ModifyExpActivity.class);
         startActivity(intent);
     }
 }

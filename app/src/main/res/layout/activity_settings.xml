@@ -16,11 +16,24 @@
         android:layout_marginTop="45dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:text="@string/modify_data"
+        android:textColor="#bb8600"
+        android:textSize="20sp"
+        android:onClick="goToModifyExp"
+        android:id="@+id/buttonModifyData" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        android:layout_centerHorizontal="true"
         android:text="@string/delete_data"
         android:textColor="#BB0000"
         android:textSize="20sp"
         android:onClick="showNoticeDialog"
-        android:id="@+id/button4" />
+        android:id="@+id/buttonDeleteData"
+        android:layout_below="@+id/buttonModifyData"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -30,9 +43,9 @@
         android:textSize="20sp"
         android:onClick="goToMain"
         android:id="@+id/button3"
-        android:layout_below="@+id/button4"
-        android:layout_alignStart="@+id/button4"
+        android:layout_below="@+id/buttonDeleteData"
+        android:layout_alignStart="@+id/buttonDeleteData"
         android:text="@string/go_to_main"
-        android:layout_alignEnd="@+id/button4" />
+        android:layout_alignEnd="@+id/buttonDeleteData" />
 
 </RelativeLayout>

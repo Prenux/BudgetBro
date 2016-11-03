@@ -11,15 +11,26 @@
     <string name="dialog_confirm_accept">Totally!</string>
     <string name="dialog_confirm_cancel">Not really..</string>
     <string name="delete_data">Delete Data</string>
+    <string name="modify_data">Modify Data</string>
     <string name="go_to_main">Go to Main</string>
     <string-array name="wasteType">
-        <item>Technology</item>
+        <item>Techno</item>
         <item>Food</item>
-        <item>Car</item>
+        <item>Transport</item>
         <item>Music</item>
         <item>Sports</item>
         <item>Travel</item>
         <item>Learning</item>
+        <item>For Fun</item>
         <item>Others</item>
     </string-array>
+    <string name="tot_message">Total</string>
+    <string name="notSel">Nothing to confess!!!</string>
+    <string name="notDigit">Price should be digit!</string>
+    <string name="elementID">Which element? (ID number)</string>
+    <string name="modify">Modify</string>
+    <string name="cancel">Cancel</string>
+    <string name="change_date">Change Date?</string>
+    <string name="change_category">Change Category?</string>
+    <string name="all_good">All Good!</string>
 </resources>

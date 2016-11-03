@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_modify_exp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="org.prenux.young.budgetbro.ModifyExpActivity">
+
+    <EditText android:id="@+id/elementID"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="@string/elementID"
+        android:layout_centerHorizontal="true" />
+
+    <EditText android:id="@+id/mod_price_message"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/price_message"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/elementID"/>
+
+    <EditText android:id="@+id/mod_what_message"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/what_message"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/mod_price_message" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerModifyCat"
+        android:layout_below="@+id/mod_what_message"
+        android:layout_marginTop="25dp"/>
+
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        android:id="@+id/spinnerModifyDate"
+        android:layout_below="@+id/spinnerModifyCat"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitChange"
+        android:text="@string/modify"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/spinnerModifyDate"
+        android:layout_alignEnd="@+id/spinnerModifyDate"
+        android:layout_marginEnd="54dp"
+        android:onClick="updateExp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelChange"
+        android:text="@string/cancel"
+        android:layout_alignBaseline="@+id/submitChange"
+        android:layout_alignBottom="@+id/submitChange"
+        android:layout_alignStart="@+id/spinnerModifyDate"
+        android:layout_marginStart="54dp"
+        android:onClick="goToSettings"/>
+    <!--
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_date"
+        android:id="@+id/chDateChkBox"
+        android:layout_below="@+id/spinnerModifyCat"
+        android:onClick="dateClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_category"
+        android:id="@+id/chCatChkBox"
+        android:layout_below="@+id/mod_what_message"
+        android:onClick="catClicked"/>
+
+        -->
+
+</RelativeLayout>
