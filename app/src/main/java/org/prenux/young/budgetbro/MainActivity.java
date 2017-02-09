@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity
         dialog.dismiss();
     }
 
+    //Actually save the expense!
     public void confirm(){
     //write data to database
         priceEditText = (EditText) findViewById(R.id.price_message);
@@ -156,6 +157,8 @@ public class MainActivity extends AppCompatActivity
         whatEditText.setText("");
     }
 
+
+    //Read the database to print some stats
     public void readIt(View view){
 
         DBHelper db = new DBHelper(this);
@@ -203,12 +206,13 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
+    //Switch to Settings Activity
     public void displaySettings (MenuItem item){
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 
+    //verify is the string is a numeric value
     public static boolean isNumeric(String str)
     {
         try

@@ -22,15 +22,9 @@ public class ModifyExpActivity extends AppCompatActivity {
 
     DatePicker datePicker;
     EditText newPriceEditText,newWhatEditText, elementIDEditText;
-    Spinner spinnerCat;
-    Spinner spinnerDay;
-    Spinner spinnerMonth;
-    Spinner spinnerYear;
     ArrayAdapter<CharSequence> adapter;
     String catStr;
     int catInt;
-    boolean dateChkBox = false;
-    boolean catChkBox = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
